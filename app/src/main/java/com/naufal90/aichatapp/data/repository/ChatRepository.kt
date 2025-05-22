@@ -8,7 +8,7 @@ class ChatRepository(private val api: OpenRouterApi) {
     suspend fun sendMessage(messages: List<Message>): List<Message> {
         val response = api.chat(
             ChatRequest(
-                model = "openai/gpt-3.5-turbo",
+                model = "qwen/qwen3-235b-a22b:free",
                 messages = messages
             )
         )
