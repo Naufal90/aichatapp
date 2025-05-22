@@ -46,4 +46,30 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // Inisialisasi dependencies
+        val api = Retrofit.Builder()
+            .baseUrl("https://openrouter.ai/api/v1/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(OpenRouterApi::class.java)
+
+        val repository = ChatRepository(api)
+        val viewModel: ChatViewModel by viewModels { ChatViewModel.Factory(repository) }
+
+        setContent {
+            AIChatAppTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    ChatScreen(viewModel)
+                }
+            }
+        }
+    }
+  }
 }
