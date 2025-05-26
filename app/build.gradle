@@ -1,10 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt' // For Room or other annotation processors if needed
+    id 'kotlin-kapt'
 }
 
-// In your app/build.gradle, update the android block:
 android {
     namespace 'com.naufal90.aichatapp'
     compileSdk 31
@@ -15,18 +14,11 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
-        
-  }
+    }
+
     lintOptions {
         xmlReport true
         checkReleaseBuilds false
-    }
-}
-        
-        // Add these if using vector drawables
-        vectorDrawables {
-            useSupportLibrary true
-        }
     }
 
     buildTypes {
@@ -36,7 +28,10 @@ android {
         }
     }
 
-    // Add these compile options
+    vectorDrawables {
+        useSupportLibrary true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -46,10 +41,9 @@ android {
         jvmTarget = '17'
     }
 
-    // Add these build features
     buildFeatures {
         compose true
-        dataBinding true // Only if you're using data binding
+        dataBinding true
     }
 
     composeOptions {
@@ -61,6 +55,7 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+}
 
 
 dependencies {
