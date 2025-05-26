@@ -9,12 +9,17 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.naufal90.aichatapp"
-        minSdk 24
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
+    applicationId "com.naufal90.aichatapp"
+    minSdk 24
+    targetSdk 31
+    versionCode 1
+    versionName "1.0"
+
+    vectorDrawables {
+        useSupportLibrary true
     }
+}
+    
 
     lintOptions {
         xmlReport true
@@ -28,9 +33,6 @@ android {
         }
     }
 
-    vectorDrawables {
-        useSupportLibrary true
-    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
